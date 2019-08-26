@@ -6,8 +6,6 @@ from flask import render_template
 def home():
     return render_template('home.html')
 
-@app.route('/prediction')
-def prediction():
-    return render_template('prediction.html')
-
-    
+@app.route('/jquery-3.4.1.min.js')
+def jquery():
+    return render_template('jquery-3.4.1.min.js')
