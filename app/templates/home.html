@@ -11,7 +11,7 @@
 
 <div style="zoom: 1;overflow:auto;">
 <div style="float: left; width: 65%; text-align: center;">
-    <h1 style="font-size: 2.2rem;">Know your dog</h1>
+    <h1 style="font-size: 2.2rem;">The Dog App</h1>
     <p>Let's discover your dog's breed with our intelligent algorithm.</p>
 </div>
 <div style="float: right; width: 20%; margin: 1em; background-color: #e6e6e6; padding: 0.6em; text-align: center;">
@@ -26,7 +26,7 @@
 </div>
 
 <div style="margin: 2rem;font-size: 1.2rem; border: 1px solid black; padding: 1.2rem;">
-  <form enctype="multipart/form-data"        
+  <form enctype="multipart/form-data"
         method="POST"
         action="">
         <div>
@@ -49,9 +49,9 @@
      <h3>Evaluation</h3>
      <div id="result">&nbsp;</div>
   </div>
-</div>  
-  
-  
+</div>
+
+
   <script type="text/javascript">
    var doSubmit = function(){
     // Form Data
@@ -63,7 +63,7 @@
      formData.set("image", file , file.name);
     }
 
-    // Http Request  
+    // Http Request
     var request = new XMLHttpRequest();
     request.open('POST', "http://localhost:5000/predict");
     request.onload = function(ev) {
@@ -73,15 +73,15 @@
         if (retour['predictions'][x]['probability'] > 0.1) {
         retourHTML += "<li><span style=\"font-weight: bold\">" + retour['predictions'][x]['label'] + "</span> (probability: " + retour['predictions'][x]['probability'].toFixed(4) + ")</li>";
         } else {
-        retourHTML += "<li style=\"font-size= 0.8em;\"><span>" + retour['predictions'][x]['label'] + "</span> (probability: " + retour['predictions'][x]['probability'].toFixed(4) + ")</li>";        
+        retourHTML += "<li style=\"font-size= 0.8em;\"><span>" + retour['predictions'][x]['label'] + "</span> (probability: " + retour['predictions'][x]['probability'].toFixed(4) + ")</li>";
         }
       }
     retourHTML += "</ul>";
     document.getElementById('result').innerHTML = retourHTML;
     }
     request.send(formData);
-  } 
-  
+  }
+
   var openFile = function(e) {
       var input = e.target;
 
@@ -94,7 +94,7 @@
     reader.readAsDataURL(input.files[0]);
   };
   </script>
-  
-  
-</body>  
+
+
+</body>
 </html>
