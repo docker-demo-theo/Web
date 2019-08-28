@@ -1,6 +1,6 @@
 #!/bin/bash
-app="testapp"
-docker build -t ${app} .
+
+docker build -t new-web-demo .
 docker run -d -p 4000:80 \
-  --name=${app} \
-  -v $PWD:/app ${app}
+  --name=new-web-demo \
+  -v $PWD:/app new-web-demo
