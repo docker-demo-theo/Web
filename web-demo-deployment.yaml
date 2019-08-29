@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-demo-deployment
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+      - name: web-container
+        image: theodocker6/web-demo:latest
+        ports:
+        - containerPort: 4000
+        command: [ "/bin/bash", "-ce", "tail -f /dev/null" ]
